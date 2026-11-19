@@ -1,5 +1,3 @@
-import os
-
 import pandas as pd
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
@@ -8,6 +6,8 @@ from ml.data import apply_label, process_data
 from ml.model import inference, load_model
 
 # DO NOT MODIFY
+
+
 class Data(BaseModel):
     age: int = Field(..., example=37)
     workclass: str = Field(..., example="Private")
@@ -26,6 +26,7 @@ class Data(BaseModel):
     hours_per_week: int = Field(..., example=40, alias="hours-per-week")
     native_country: str = Field(..., example="United-States", alias="native-country")
 
+
 path = "model/encoder.pkl"
 encoder = load_model(path)
 
@@ -33,6 +34,7 @@ path = "model/model.pkl"
 model = load_model(path)
 
 app = FastAPI()
+
 
 @app.get("/")
 async def get_root():

@@ -13,7 +13,11 @@ from ml.model import (
     train_model,
 )
 
-project_path = "/Users/Dan/nd0821-c2-build-model-workflow-exercises/lesson-1-machine-learning-pipelines/exercises/exercise_2/starter/Deploying-a-Scalable-ML-Pipeline-with-FastAPI"
+project_path = (
+    "/Users/Dan/nd0821-c2-build-model-workflow-exercises/"
+    "lesson-1-machine-learning-pipelines/exercises/exercise_2/"
+    "starter/Deploying-a-Scalable-ML-Pipeline-with-FastAPI"
+)
 data_path = os.path.join(project_path, "data", "census.csv")
 print(data_path)
 data = pd.read_csv(data_path)
@@ -62,7 +66,7 @@ save_model(encoder, encoder_path)
 # load the model
 model = load_model(
     model_path
-) 
+)
 
 preds = inference(model, X_test)
 
